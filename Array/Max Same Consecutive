@@ -1,0 +1,37 @@
+class Solution {
+    public int maxConsecBits(int[] arr) {
+        
+        int n = arr.length;
+        int zeroCnt = 0, oneCnt = 0;
+        
+        int i = 0;
+        while(i < n){
+            
+            if(arr[i] == 0){
+                
+                int cnt =0;
+                
+                while(i < n && arr[i] != 1){
+                    i++;
+                    cnt++;
+                }
+                
+                zeroCnt = Math.max(zeroCnt, cnt);
+                
+            }else{
+                
+                int cnt =0;
+                
+                while(i < n && arr[i] != 0){
+                    i++;
+                    cnt++;
+                }
+                
+                oneCnt = Math.max(oneCnt, cnt);
+            }
+        }
+        
+        return oneCnt > zeroCnt ? oneCnt:zeroCnt;
+        
+    }
+}
